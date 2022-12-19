@@ -9,13 +9,13 @@ class UserController {
     async findOne(req: Request, res: Response) {
         const { userId } = req.params
 
-        const role = await UserModel.findOne({
+        const user = await UserModel.findOne({
             where: {
                 id: userId
             }
         })
 
-        return res.status(200).json(role)
+        return res.status(200).json(user)
     }
     async create(req: Request, res: Response) {
         const { name, password, address, email, phone_number, role_id } = req.body
